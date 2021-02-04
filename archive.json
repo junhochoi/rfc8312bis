@@ -1,16 +1,16 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2020-12-24T00:12:36.007938+00:00",
+  "timestamp": "2021-02-04T00:02:15.108761+00:00",
   "repo": "NTAP/rfc8312bis",
   "labels": [
     {
       "name": "design",
-      "description": "Normative change relative to RFC8312",
+      "description": "Normative change relative to RFC8312 or earlier bis versions",
       "color": "d73a4a"
     },
     {
       "name": "editorial",
-      "description": "Editorial change relative to RFC9312",
+      "description": "Editorial change relative to RFC8312 or earlier bis versions",
       "color": "0075ca"
     },
     {
@@ -20,7 +20,7 @@
     },
     {
       "name": "help wanted",
-      "description": "Extra attention is needed",
+      "description": "Looking for someone resolve this issue",
       "color": "008672"
     },
     {
@@ -1543,11 +1543,15 @@
       "state": "OPEN",
       "author": "martinthomson",
       "authorAssociation": "NONE",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "lisongxu"
+      ],
+      "labels": [
+        "help wanted"
+      ],
       "body": "Given that a lot of TCP deployments use Cubic, I think that the intent here is to be friendly to Reno instead.  As the text establishes, it is AIMD(1, 0.5) that this wants to be sensitive to.\r\n\r\nIt might have made sense to talk about TCP when Cubic wasn't widely deployed, but now it is just confusing.",
       "createdAt": "2020-12-22T00:08:25Z",
-      "updatedAt": "2020-12-22T06:57:07Z",
+      "updatedAt": "2021-02-03T09:44:53Z",
       "closedAt": null,
       "comments": [
         {
@@ -1556,6 +1560,42 @@
           "body": "Agreed. We need to do a larger rewrite of much of the beginning of the document, which was historically correct but is now outdated, given that all stacks default to CUBIC.",
           "createdAt": "2020-12-22T06:57:07Z",
           "updatedAt": "2020-12-22T06:57:07Z"
+        },
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I can also help to revise the text later next week, is it ok? Thanks, Lars",
+          "createdAt": "2021-02-03T06:04:09Z",
+          "updatedAt": "2021-02-03T06:04:09Z"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "id": "MDU6SXNzdWU3OTkxMjExNTE=",
+      "title": "Change introductory text to reflect deployment experience",
+      "url": "https://github.com/NTAP/rfc8312bis/issues/39",
+      "state": "OPEN",
+      "author": "larseggert",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "lisongxu"
+      ],
+      "labels": [
+        "editorial",
+        "help wanted"
+      ],
+      "body": "The abstract, introduction and other text throughout the document need to be updated to reflect the significantly broader deployment experience CUBIC has seen since RFC8312 was published. At that time, it had been the default for Linux for years, but since then, it's also been the default for Windows and Apple stacks.",
+      "createdAt": "2021-02-02T09:54:14Z",
+      "updatedAt": "2021-02-03T09:45:08Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks, Lars. I can help to revise the text later next week, is it ok? ",
+          "createdAt": "2021-02-03T06:03:16Z",
+          "updatedAt": "2021-02-03T06:03:16Z"
         }
       ]
     }
