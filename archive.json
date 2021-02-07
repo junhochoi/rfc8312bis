@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-04T00:02:15.108761+00:00",
+  "timestamp": "2021-02-07T00:02:16.194582+00:00",
   "repo": "NTAP/rfc8312bis",
   "labels": [
     {
@@ -1546,12 +1546,10 @@
       "assignees": [
         "lisongxu"
       ],
-      "labels": [
-        "help wanted"
-      ],
+      "labels": [],
       "body": "Given that a lot of TCP deployments use Cubic, I think that the intent here is to be friendly to Reno instead.  As the text establishes, it is AIMD(1, 0.5) that this wants to be sensitive to.\r\n\r\nIt might have made sense to talk about TCP when Cubic wasn't widely deployed, but now it is just confusing.",
       "createdAt": "2020-12-22T00:08:25Z",
-      "updatedAt": "2021-02-03T09:44:53Z",
+      "updatedAt": "2021-02-04T08:06:38Z",
       "closedAt": null,
       "comments": [
         {
@@ -1582,12 +1580,11 @@
         "lisongxu"
       ],
       "labels": [
-        "editorial",
-        "help wanted"
+        "editorial"
       ],
       "body": "The abstract, introduction and other text throughout the document need to be updated to reflect the significantly broader deployment experience CUBIC has seen since RFC8312 was published. At that time, it had been the default for Linux for years, but since then, it's also been the default for Windows and Apple stacks.",
       "createdAt": "2021-02-02T09:54:14Z",
-      "updatedAt": "2021-02-03T09:45:08Z",
+      "updatedAt": "2021-02-04T08:06:57Z",
       "closedAt": null,
       "comments": [
         {
