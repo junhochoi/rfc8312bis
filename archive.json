@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-07T00:02:16.194582+00:00",
+  "timestamp": "2021-02-09T00:02:33.751118+00:00",
   "repo": "NTAP/rfc8312bis",
   "labels": [
     {
@@ -4390,6 +4390,32 @@
       "mergeCommit": {
         "oid": "c8a17e5038abbef4324f730e8425bc52193aceb0"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 40,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTY5MzkyNzkx",
+      "title": "Switch to martinthomson/i-d-template@v1m",
+      "url": "https://github.com/NTAP/rfc8312bis/pull/40",
+      "state": "OPEN",
+      "author": "larseggert",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "As requested in https://github.com/martinthomson/i-d-template/pull/259",
+      "createdAt": "2021-02-08T11:21:25Z",
+      "updatedAt": "2021-02-08T11:21:25Z",
+      "baseRepository": "NTAP/rfc8312bis",
+      "baseRefName": "main",
+      "baseRefOid": "8cb2c1cb3c391f169e8e3818005e36e6fcba5e32",
+      "headRepository": "NTAP/rfc8312bis",
+      "headRefName": "use-new-i-d-template",
+      "headRefOid": "b19952152b27a451572dc4d61e0f14a1d364a5de",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
