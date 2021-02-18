@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-11T00:02:19.517121+00:00",
+  "timestamp": "2021-02-18T00:02:31.141001+00:00",
   "repo": "NTAP/rfc8312bis",
   "labels": [
     {
@@ -1584,7 +1584,7 @@
       ],
       "body": "The abstract, introduction and other text throughout the document need to be updated to reflect the significantly broader deployment experience CUBIC has seen since RFC8312 was published. At that time, it had been the default for Linux for years, but since then, it's also been the default for Windows and Apple stacks.",
       "createdAt": "2021-02-02T09:54:14Z",
-      "updatedAt": "2021-02-04T08:06:57Z",
+      "updatedAt": "2021-02-17T00:32:22Z",
       "closedAt": null,
       "comments": [
         {
@@ -1593,6 +1593,34 @@
           "body": "Thanks, Lars. I can help to revise the text later next week, is it ok? ",
           "createdAt": "2021-02-03T06:03:16Z",
           "updatedAt": "2021-02-03T06:03:16Z"
+        },
+        {
+          "author": "goelvidhi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@lisongxu I just wanted to check with you if you'd have time to work on it? :-)",
+          "createdAt": "2021-02-16T03:53:56Z",
+          "updatedAt": "2021-02-16T03:53:56Z"
+        },
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Vidhi,\n\nThanks for checking with me. Really sorry that I am much busier than what I expected due to multiple back to back deadlines. It looks like that I will have some time to work on it next week after Monday (my last deadline this month :-) ).\n\nThanks\nLisong\n\n________________________________\nFrom: Vidhi Goel <notifications@github.com>\nSent: Monday, February 15, 2021 9:54 PM\nTo: NTAP/rfc8312bis <rfc8312bis@noreply.github.com>\nCc: Lisong Xu <xu@unl.edu>; Mention <mention@noreply.github.com>\nSubject: Re: [NTAP/rfc8312bis] Change introductory text to reflect deployment experience (#39)\n\nNon-NU Email\n________________________________\n\n@lisongxu<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_lisongxu&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=AMehHSET3Bpt_r3IZ4ZDgyRqVko3-w4Z_w8m9ys__Ro&s=diWMNEcKyo_-XJXx8f_Q82bvoxlQFnmER9PLlTpG_4Y&e=> I just wanted to check with you if you'd have time to work on it? :-)\n\n\u2014\nYou are receiving this because you were mentioned.\nReply to this email directly, view it on GitHub<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_NTAP_rfc8312bis_issues_39-23issuecomment-2D779563927&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=AMehHSET3Bpt_r3IZ4ZDgyRqVko3-w4Z_w8m9ys__Ro&s=JVA21F0udJ1-VhvDChtnEsXz2cERIOTimpkazU-IlJk&e=>, or unsubscribe<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_notifications_unsubscribe-2Dauth_ACPRVIJL2VNJEMYKSTA5Q23S7HT6DANCNFSM4W6KNQJQ&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=AMehHSET3Bpt_r3IZ4ZDgyRqVko3-w4Z_w8m9ys__Ro&s=C1urot0udNfkV9HL6wQBlqhrpxHB9ToGWiSZq-vrCNk&e=>.\n",
+          "createdAt": "2021-02-16T04:05:08Z",
+          "updatedAt": "2021-02-16T04:05:08Z"
+        },
+        {
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "body": "Mon, Feb 22 is the cutoff date for i-D submissions for IETF-110. If we're not ready to submit by then, we'll have to wait until mid-March. Which isn't a huge issue, but since we're going to ask for WG adoption, it would be nice to have a more up-to-date I-D to discuss.",
+          "createdAt": "2021-02-16T08:50:10Z",
+          "updatedAt": "2021-02-16T08:50:10Z"
+        },
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I see. I will try my best. Thanks\nLisong\n\n________________________________\nFrom: Lars Eggert <notifications@github.com>\nSent: Tuesday, February 16, 2021 2:50 AM\nTo: NTAP/rfc8312bis <rfc8312bis@noreply.github.com>\nCc: Lisong Xu <xu@unl.edu>; Mention <mention@noreply.github.com>\nSubject: Re: [NTAP/rfc8312bis] Change introductory text to reflect deployment experience (#39)\n\nNon-NU Email\n________________________________\n\nMon, Feb 22 is the cutoff date for i-D submissions for IETF-110. If we're not ready to submit by then, we'll have to wait until mid-March. Which isn't a huge issue, but since we're going to ask for WG adoption, it would be nice to have a more up-to-date I-D to discuss.\n\n\u2014\nYou are receiving this because you were mentioned.\nReply to this email directly, view it on GitHub<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_NTAP_rfc8312bis_issues_39-23issuecomment-2D779682893&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=hSUqqOiPfh2Q1N6MuR2Ij_Ox6ZKD-HzrODl1-Istx0g&s=1lbItThazxoaa6MwBWONmQOg-GF9RhrjJ7vhEK1LWYg&e=>, or unsubscribe<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_notifications_unsubscribe-2Dauth_ACPRVIJ2MY375Q7JVZCWOPDS7IWVLANCNFSM4W6KNQJQ&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=hSUqqOiPfh2Q1N6MuR2Ij_Ox6ZKD-HzrODl1-Istx0g&s=Rb4Gdva2BCz8mFAj60V9sTJh2uHK8qaQPSHjCD-WT5I&e=>.\n",
+          "createdAt": "2021-02-17T00:32:22Z",
+          "updatedAt": "2021-02-17T00:32:22Z"
         }
       ]
     }
@@ -4418,6 +4446,32 @@
       "mergeCommit": {
         "oid": "f3f7ffbe186bce0ba667992c1056a407e41cde11"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 41,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTc1MjEwNTE4",
+      "title": "Issues 38 and 39",
+      "url": "https://github.com/NTAP/rfc8312bis/pull/41",
+      "state": "OPEN",
+      "author": "lisongxu",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Issue 38: \"TCP-Friendly\" is a bit misleading\r\nhttps://github.com/NTAP/rfc8312bis/issues/38\r\n\r\nIssue 39: Change introductory text to reflect deployment experience \r\nhttps://github.com/NTAP/rfc8312bis/issues/39\r\n",
+      "createdAt": "2021-02-17T21:02:07Z",
+      "updatedAt": "2021-02-17T21:03:25Z",
+      "baseRepository": "NTAP/rfc8312bis",
+      "baseRefName": "main",
+      "baseRefOid": "5d19dbc0eb52a8aa4f1701871d190d8faf0f1d53",
+      "headRepository": "lisongxu/rfc8312bis",
+      "headRefName": "main",
+      "headRefOid": "cc727233ae55af189f44b50fb5963379273e4a35",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
