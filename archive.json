@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-18T00:02:31.141001+00:00",
+  "timestamp": "2021-02-21T00:07:36.174570+00:00",
   "repo": "NTAP/rfc8312bis",
   "labels": [
     {
@@ -1540,7 +1540,7 @@
       "id": "MDU6SXNzdWU3NzI1NDMyMzU=",
       "title": "\"TCP-Friendly\" is a bit misleading",
       "url": "https://github.com/NTAP/rfc8312bis/issues/38",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinthomson",
       "authorAssociation": "NONE",
       "assignees": [
@@ -1549,8 +1549,8 @@
       "labels": [],
       "body": "Given that a lot of TCP deployments use Cubic, I think that the intent here is to be friendly to Reno instead.  As the text establishes, it is AIMD(1, 0.5) that this wants to be sensitive to.\r\n\r\nIt might have made sense to talk about TCP when Cubic wasn't widely deployed, but now it is just confusing.",
       "createdAt": "2020-12-22T00:08:25Z",
-      "updatedAt": "2021-02-04T08:06:38Z",
-      "closedAt": null,
+      "updatedAt": "2021-02-19T09:24:47Z",
+      "closedAt": "2021-02-19T09:24:47Z",
       "comments": [
         {
           "author": "larseggert",
@@ -1573,7 +1573,7 @@
       "id": "MDU6SXNzdWU3OTkxMjExNTE=",
       "title": "Change introductory text to reflect deployment experience",
       "url": "https://github.com/NTAP/rfc8312bis/issues/39",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "larseggert",
       "authorAssociation": "MEMBER",
       "assignees": [
@@ -1584,8 +1584,8 @@
       ],
       "body": "The abstract, introduction and other text throughout the document need to be updated to reflect the significantly broader deployment experience CUBIC has seen since RFC8312 was published. At that time, it had been the default for Linux for years, but since then, it's also been the default for Windows and Apple stacks.",
       "createdAt": "2021-02-02T09:54:14Z",
-      "updatedAt": "2021-02-17T00:32:22Z",
-      "closedAt": null,
+      "updatedAt": "2021-02-19T09:24:47Z",
+      "closedAt": "2021-02-19T09:24:47Z",
       "comments": [
         {
           "author": "lisongxu",
@@ -1621,6 +1621,61 @@
           "body": "I see. I will try my best. Thanks\nLisong\n\n________________________________\nFrom: Lars Eggert <notifications@github.com>\nSent: Tuesday, February 16, 2021 2:50 AM\nTo: NTAP/rfc8312bis <rfc8312bis@noreply.github.com>\nCc: Lisong Xu <xu@unl.edu>; Mention <mention@noreply.github.com>\nSubject: Re: [NTAP/rfc8312bis] Change introductory text to reflect deployment experience (#39)\n\nNon-NU Email\n________________________________\n\nMon, Feb 22 is the cutoff date for i-D submissions for IETF-110. If we're not ready to submit by then, we'll have to wait until mid-March. Which isn't a huge issue, but since we're going to ask for WG adoption, it would be nice to have a more up-to-date I-D to discuss.\n\n\u2014\nYou are receiving this because you were mentioned.\nReply to this email directly, view it on GitHub<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_NTAP_rfc8312bis_issues_39-23issuecomment-2D779682893&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=hSUqqOiPfh2Q1N6MuR2Ij_Ox6ZKD-HzrODl1-Istx0g&s=1lbItThazxoaa6MwBWONmQOg-GF9RhrjJ7vhEK1LWYg&e=>, or unsubscribe<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_notifications_unsubscribe-2Dauth_ACPRVIJ2MY375Q7JVZCWOPDS7IWVLANCNFSM4W6KNQJQ&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=hSUqqOiPfh2Q1N6MuR2Ij_Ox6ZKD-HzrODl1-Istx0g&s=Rb4Gdva2BCz8mFAj60V9sTJh2uHK8qaQPSHjCD-WT5I&e=>.\n",
           "createdAt": "2021-02-17T00:32:22Z",
           "updatedAt": "2021-02-17T00:32:22Z"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "id": "MDU6SXNzdWU4MTE5MDMyNzA=",
+      "title": "Adaptive adjustment",
+      "url": "https://github.com/NTAP/rfc8312bis/issues/43",
+      "state": "OPEN",
+      "author": "larseggert",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Is this \"adaptive adjustment\" that is mentioned in the text something that is still planned? Or should we remove this?",
+      "createdAt": "2021-02-19T10:30:21Z",
+      "updatedAt": "2021-02-19T14:14:40Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am fine with removing it. Thanks\r\n",
+          "createdAt": "2021-02-19T14:14:40Z",
+          "updatedAt": "2021-02-19T14:14:40Z"
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "id": "MDU6SXNzdWU4MTE5MDM2NTI=",
+      "title": "\"prior_cwnd\" is not defined",
+      "url": "https://github.com/NTAP/rfc8312bis/issues/44",
+      "state": "CLOSED",
+      "author": "larseggert",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "\"prior_cwnd\" is used in the text but not defined.",
+      "createdAt": "2021-02-19T10:30:50Z",
+      "updatedAt": "2021-02-19T16:18:44Z",
+      "closedAt": "2021-02-19T16:18:44Z",
+      "comments": [
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "all prior_* variables are assigned in Section 4.9 for undo.",
+          "createdAt": "2021-02-19T14:16:35Z",
+          "updatedAt": "2021-02-19T14:16:35Z"
+        },
+        {
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "body": "Ah yes!",
+          "createdAt": "2021-02-19T16:18:35Z",
+          "updatedAt": "2021-02-19T16:18:35Z"
         }
       ]
     }
@@ -4454,26 +4509,362 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTc1MjEwNTE4",
       "title": "Issues 38 and 39",
       "url": "https://github.com/NTAP/rfc8312bis/pull/41",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "lisongxu",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Issue 38: \"TCP-Friendly\" is a bit misleading\r\nhttps://github.com/NTAP/rfc8312bis/issues/38\r\n\r\nIssue 39: Change introductory text to reflect deployment experience \r\nhttps://github.com/NTAP/rfc8312bis/issues/39\r\n",
       "createdAt": "2021-02-17T21:02:07Z",
-      "updatedAt": "2021-02-17T21:03:25Z",
+      "updatedAt": "2021-02-19T09:24:47Z",
       "baseRepository": "NTAP/rfc8312bis",
       "baseRefName": "main",
       "baseRefOid": "5d19dbc0eb52a8aa4f1701871d190d8faf0f1d53",
       "headRepository": "lisongxu/rfc8312bis",
       "headRefName": "main",
-      "headRefOid": "cc727233ae55af189f44b50fb5963379273e4a35",
+      "headRefOid": "95b02537922f0652d7aa002b49a5d2e7f94958af",
+      "closedAt": "2021-02-19T09:24:47Z",
+      "mergedAt": "2021-02-19T09:24:47Z",
+      "mergedBy": "larseggert",
+      "mergeCommit": {
+        "oid": "8e81c7094dd9e8c97cfbe9d5638453e8bb5dc371"
+      },
+      "comments": [
+        {
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I thought about that too, :-) and finally decided to use AIMD TCP receivers; otherwise it is kind of weird to have only AIMD TCP senders.\nThanks\nLisong\n\n________________________________\nFrom: Vidhi Goel <notifications@github.com>\nSent: Thursday, February 18, 2021 9:02 PM\nTo: NTAP/rfc8312bis <rfc8312bis@noreply.github.com>\nCc: Lisong Xu <xu@unl.edu>; Author <author@noreply.github.com>\nSubject: Re: [NTAP/rfc8312bis] Issues 38 and 39 (#41)\n\nNon-NU Email\n________________________________\n\n@goelvidhi commented on this pull request.\n\n________________________________\n\nIn draft-eggert-tcpm-rfc8312bis.md<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_NTAP_rfc8312bis_pull_41-23discussion-5Fr578868980&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=uqkd9u6PKUtKZe3yHSvXDITyrfQWpeWRo54EehTG8J4&s=1kXp_0IaNhb1Ifb9NiBWPkdpRSx1kXqYR1wDlQWUi50&e=>:\n\n>\n ## Incremental Deployment\n\n-CUBIC requires only the change of TCP senders, and it does not make\n-any changes to TCP receivers. That is, a CUBIC sender works correctly\n-with the Standard TCP receivers. In addition, CUBIC does not require\n+CUBIC requires only the change of AIMD TCP senders, and it does not make\n+any changes to AIMD TCP receivers. That is, a CUBIC sender works correctly\n\n\nShould we just leave the receivers as \"TCP receivers\"? Not sure if AIMD makes sense for receiver\n\n\u2014\nYou are receiving this because you authored the thread.\nReply to this email directly, view it on GitHub<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_NTAP_rfc8312bis_pull_41-23pullrequestreview-2D593795572&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=uqkd9u6PKUtKZe3yHSvXDITyrfQWpeWRo54EehTG8J4&s=LGVxL2CJRIBMrhJKsD9_WiFoimfBUibvXJprvsqgjRI&e=>, or unsubscribe<https://urldefense.proofpoint.com/v2/url?u=https-3A__github.com_notifications_unsubscribe-2Dauth_ACPRVIOIAWXLQVCN2HBVRRDS7XIENANCNFSM4XZCIDTQ&d=DwMCaQ&c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&r=8GgbmpxpPRnPS9z8_jUQhw&m=uqkd9u6PKUtKZe3yHSvXDITyrfQWpeWRo54EehTG8J4&s=9QE-OFEs1-kKdwGmViFjcvPdyyMYRC8ijpEZMFcqHuw&e=>.\n",
+          "createdAt": "2021-02-19T03:45:58Z",
+          "updatedAt": "2021-02-19T03:45:58Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkyOTk1NjA4",
+          "commit": {
+            "abbreviatedOid": "cc72723"
+          },
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2021-02-18T09:13:48Z",
+          "updatedAt": "2021-02-18T09:35:57Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "Is Android not Linux?",
+              "createdAt": "2021-02-18T09:13:48Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\nWindows, and Apple stacks. This document\r\nupdates the specification of CUBIC to include algorithmic\r\nimprovements based on these implementations and recent\r\nacademic work. Based on the extensive deployment experience\r\nwith CUBIC, it also moves the specification to the Standards Track.\r\n```\r\n",
+              "createdAt": "2021-02-18T09:18:07Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "```suggestion\r\ncongestion control algorithm of traditional Additive Increase and\r\nMultiplicative Decrease (AIMD) TCP to remedy this problem.\r\n```\r\n",
+              "createdAt": "2021-02-18T09:19:40Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 63,
+              "body": "Same a comment about Android using Linux?",
+              "createdAt": "2021-02-18T09:20:28Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\nExtensive, decade-long deployment experience in vastly different\r\nInternet scenarios has convincingly demonstrated that CUBIC is\r\nsafe for deployment on the global Internet and delivers substantial\r\nbenefits over traditional AIMD congestion control. It is therefore to\r\nbe regarded as the current standard for TCP congestion control.\r\n```",
+              "createdAt": "2021-02-18T09:22:27Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 82,
+              "body": "Would it be possible to turn the following four very long paragraphs on these different four principles into sub-sections? Could someone suggest for section headings to use?",
+              "createdAt": "2021-02-18T09:25:26Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 260,
+              "body": "```suggestion\r\nAIMD TCP, which uses AIMD(1, 0.5).\r\n```",
+              "createdAt": "2021-02-18T09:30:13Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 411,
+              "body": "```suggestion\r\nin fast, long-distance networks. Based on these observations\r\n```",
+              "createdAt": "2021-02-18T09:31:28Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 412,
+              "body": "```suggestion\r\nand extensive deployment experience, we find *C*=0.4 gives\r\na good balance between AIMD-\r\n```",
+              "createdAt": "2021-02-18T09:32:28Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 462,
+              "body": "```suggestion\r\nMore information can be found in {{HKLRX06}}.\r\nAdditionally, there is decade-long deployment experience\r\nwith CUBIC on the Internet.\r\n```\r\n",
+              "createdAt": "2021-02-18T09:34:23Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 529,
+              "body": "This should move to a new subsection called `## Since draft-eggert-tcpm-rfc8312bis-01` that should come before the section this text is currently in.",
+              "createdAt": "2021-02-18T09:35:37Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzMjY4ODkz",
+          "commit": {
+            "abbreviatedOid": "e72c027"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-18T14:26:34Z",
+          "updatedAt": "2021-02-18T14:26:34Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "ok, I will remove it.",
+              "createdAt": "2021-02-18T14:26:34Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzMjcwODEw",
+          "commit": {
+            "abbreviatedOid": "65755e3"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-18T14:28:21Z",
+          "updatedAt": "2021-02-18T14:28:22Z",
+          "comments": [
+            {
+              "originalPosition": 63,
+              "body": "removed",
+              "createdAt": "2021-02-18T14:28:22Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzMjcyMzA2",
+          "commit": {
+            "abbreviatedOid": "d0087aa"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-18T14:29:44Z",
+          "updatedAt": "2021-02-18T14:29:44Z",
+          "comments": [
+            {
+              "originalPosition": 529,
+              "body": "done",
+              "createdAt": "2021-02-18T14:29:44Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzMjc5Mzkw",
+          "commit": {
+            "abbreviatedOid": "4a4b0c9"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-18T14:36:12Z",
+          "updatedAt": "2021-02-18T14:36:12Z",
+          "comments": [
+            {
+              "originalPosition": 82,
+              "body": "Done. ",
+              "createdAt": "2021-02-18T14:36:12Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzMzI4NzI3",
+          "commit": {
+            "abbreviatedOid": "4a4b0c9"
+          },
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-18T15:18:55Z",
+          "updatedAt": "2021-02-18T15:18:55Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzNzk1NTcy",
+          "commit": {
+            "abbreviatedOid": "4a4b0c9"
+          },
+          "author": "goelvidhi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-19T01:48:53Z",
+          "updatedAt": "2021-02-19T03:02:10Z",
+          "comments": [
+            {
+              "originalPosition": 530,
+              "body": "Should we just leave the receivers as \"TCP receivers\"? Not sure if AIMD makes sense for receiver",
+              "createdAt": "2021-02-19T01:48:53Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzODU1MjY1",
+          "commit": {
+            "abbreviatedOid": "4a4b0c9"
+          },
+          "author": "sangtaeha",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "@lisongxu Thanks a lot for the changes! I just found two small changes to consider. ",
+          "createdAt": "2021-02-19T04:43:12Z",
+          "updatedAt": "2021-02-19T05:13:24Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "@lisongxu We may remove ',' before \"below because .. \" ",
+              "createdAt": "2021-02-19T04:43:12Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            },
+            {
+              "originalPosition": 436,
+              "body": "@lisongxu Since we are using fast and long-distance networks in a few places, for consistency, we may use \"fast and long-distance networks\" instead of \"fast, long-distance networks.\"",
+              "createdAt": "2021-02-19T05:04:37Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzODc5MTc0",
+          "commit": {
+            "abbreviatedOid": "4a4b0c9"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-19T05:47:28Z",
+          "updatedAt": "2021-02-19T05:47:28Z",
+          "comments": [
+            {
+              "originalPosition": 44,
+              "body": "done",
+              "createdAt": "2021-02-19T05:47:28Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzODgwNDc5",
+          "commit": {
+            "abbreviatedOid": "ef58678"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-19T05:51:01Z",
+          "updatedAt": "2021-02-19T05:51:01Z",
+          "comments": [
+            {
+              "originalPosition": 436,
+              "body": "done",
+              "createdAt": "2021-02-19T05:51:01Z",
+              "updatedAt": "2021-02-19T05:52:25Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzOTExNTAz",
+          "commit": {
+            "abbreviatedOid": "95b0253"
+          },
+          "author": "goelvidhi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-19T07:07:44Z",
+          "updatedAt": "2021-02-19T07:07:44Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkzOTEyNDEx",
+          "commit": {
+            "abbreviatedOid": "95b0253"
+          },
+          "author": "sangtaeha",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-19T07:09:49Z",
+          "updatedAt": "2021-02-19T07:09:49Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTc2MzU2NjIy",
+      "title": "Minor editorial changes",
+      "url": "https://github.com/NTAP/rfc8312bis/pull/42",
+      "state": "OPEN",
+      "author": "larseggert",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-02-19T10:29:05Z",
+      "updatedAt": "2021-02-19T14:13:57Z",
+      "baseRepository": "NTAP/rfc8312bis",
+      "baseRefName": "main",
+      "baseRefOid": "006af1a400234eff5dfdd364e40ae942399e56ed",
+      "headRepository": "NTAP/rfc8312bis",
+      "headRefName": "minor-fixes",
+      "headRefOid": "fe6f4e882d9e4456fba68f7f910ff0faa9ab0033",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTk0MjI1NTg2",
+          "commit": {
+            "abbreviatedOid": "fe6f4e8"
+          },
+          "author": "lisongxu",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-19T14:13:57Z",
+          "updatedAt": "2021-02-19T14:13:57Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
