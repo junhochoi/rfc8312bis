@@ -6,13 +6,13 @@ TCPM                                                               L. Xu
 Internet-Draft                                                       UNL
 Obsoletes: 8312 (if approved)                                      S. Ha
 Intended status: Standards Track                                Colorado
-Expires: 23 August 2021                                          I. Rhee
+Expires: 26 August 2021                                          I. Rhee
                                                                   Bowery
                                                                  V. Goel
                                                               Apple Inc.
                                                           L. Eggert, Ed.
                                                                   NetApp
-                                                        19 February 2021
+                                                        22 February 2021
 
 
                CUBIC for Fast and Long-Distance Networks
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 August 2021.
+   This Internet-Draft will expire on 26 August 2021.
 
 Copyright Notice
 
@@ -578,8 +578,7 @@ Table of Contents
    A side effect of setting β__(cubic)_ to a value bigger than 0.5 is
    slower convergence.  We believe that while a more adaptive setting of
    β__(cubic)_ could result in faster convergence, it will make the
-   analysis of CUBIC much harder.  This adaptive adjustment of
-   β__(cubic)_ is an item for the next version of CUBIC.
+   analysis of CUBIC much harder.
 
 4.7.  Fast Convergence
 
