@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-23T00:02:33.557078+00:00",
+  "timestamp": "2021-02-25T00:02:19.051805+00:00",
   "repo": "NTAP/rfc8312bis",
   "labels": [
     {
@@ -1701,9 +1701,97 @@
       ],
       "body": "Since most of the new implementations for CUBIC will be in the context of QUIC stacks (as opposed to TCP stacks), it would be useful to add a section or an appendix on how one would do that. For example, it might make sense to describe how CUBIC would be integrated into an implementation that followed the [QUIC -recovery](https://quicwg.org/base-drafts/draft-ietf-quic-recovery.html) draft.",
       "createdAt": "2021-02-22T13:29:27Z",
-      "updatedAt": "2021-02-22T13:29:39Z",
+      "updatedAt": "2021-02-24T19:43:47Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "junhochoi",
+          "authorAssociation": "NONE",
+          "body": "quiche provides cubic as a default congestion control: https://github.com/cloudflare/quiche/blob/master/src/recovery/cubic.rs\r\nThis is mostly as-is implemetation of RFC8312 and HyStart++ draft. I am working on updating this following changes in this draft, such as https://github.com/cloudflare/quiche/pull/861\r\n\r\nFor implementor, most things are same, but QUIC defines (and I think most of TCP stack other than Linux?) congestion control window as a unit of bytes but the RFC8312 and this drafts defined cwnd as a unit of segment, so need to be careful when you calculate K and W_cubic.",
+          "createdAt": "2021-02-24T02:37:14Z",
+          "updatedAt": "2021-02-24T02:37:37Z"
+        },
+        {
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "body": "Would you be interested in submitting a PR that would summarize these changes? Are there other QUIC stacks that are implementing CUBIC from scratch? I think picoquic did?",
+          "createdAt": "2021-02-24T06:43:27Z",
+          "updatedAt": "2021-02-24T06:43:27Z"
+        },
+        {
+          "author": "goelvidhi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "IMO, it is quite straight forward to implement CUBIC using the pseudocode in [QUIC Recovery](https://quicwg.org/base-drafts/draft-ietf-quic-recovery.html) draft and adding the CUBIC pieces to the functions defined in it.\r\n\r\nCUBIC draft defines congestion window in segments which most implementors simply convert to bytes by multiplying by MSS.\r\n",
+          "createdAt": "2021-02-24T07:30:32Z",
+          "updatedAt": "2021-02-24T07:30:32Z"
+        },
+        {
+          "author": "huitema",
+          "authorAssociation": "NONE",
+          "body": "My notes on implementing Cubic for QUIC are at https://huitema.wordpress.com/2019/11/11/implementing-cubic-congestion-control-in-quic/. I already provided feedback to the \"bis\" RFC. Yes, porting Cubic to QUIC is fairly straightforward. My main implementation issue was understanding the dimensions of each formula.\r\n\r\nTwo important points from the bis draft:\r\n\r\n1. Forget about the TCP friendly formula. It does not work well, because RTT jitter will translate in CWIN swings. It is much simpler to just run the RENO algorithm in parallel and set the CWIN to max(Reno, Cubic)\r\n2. You really want to implement the recovery from spurious losses discussed in the bis draft. I think this is actually the reason for the drop in perf in face of reordering mentioned in the EPIC paper \"Making QUIC Quicker With QUIC Offload\". Not the CPU cost of reordering.",
+          "createdAt": "2021-02-24T08:05:35Z",
+          "updatedAt": "2021-02-24T08:05:35Z"
+        },
+        {
+          "author": "goelvidhi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you @huitema for the issues you had filed earlier. All of these have been addressed. \r\n\r\n> My notes on implementing Cubic for QUIC are at https://huitema.wordpress.com/2019/11/11/implementing-cubic-congestion-control-in-quic/. I already provided feedback to the \"bis\" RFC. Yes, porting Cubic to QUIC is fairly straightforward. My main implementation issue was understanding the dimensions of each formula.\r\n\r\nThis is fixed with the new section [Definitions](https://tools.ietf.org/html/draft-eggert-tcpm-rfc8312bis-02#section-4.1)\r\n> \r\n> Two important points from the bis draft:\r\n> \r\n> 1. Forget about the TCP friendly formula. It does not work well, because RTT jitter will translate in CWIN swings. It is much simpler to just run the RENO algorithm in parallel and set the CWIN to max(Reno, Cubic)\r\n\r\nAIMD friendly formula now is based on RENO - [Section 4.3](https://tools.ietf.org/html/draft-eggert-tcpm-rfc8312bis-02#section-4.3)\r\n\r\n> 2. You really want to implement the recovery from spurious losses discussed in the bis draft. I think this is actually the reason for the drop in perf in face of reordering mentioned in the EPIC paper \"Making QUIC Quicker With QUIC Offload\". Not the CPU cost of reordering.\r\n\r\nIIRC, this was the issue you had filed and we add a new section [Spurious Congestion Events](https://tools.ietf.org/html/draft-eggert-tcpm-rfc8312bis-02#section-4.9)\r\n\r\n",
+          "createdAt": "2021-02-24T08:16:51Z",
+          "updatedAt": "2021-02-24T08:16:51Z"
+        },
+        {
+          "author": "huitema",
+          "authorAssociation": "NONE",
+          "body": "@goelvidhi yes, I appreciate that the issues have been addressed in the new draft. This is good. @larseggert was asking whether there was something specific to say about Cubic for QUIC. The main remaining issue is about translating the windows counts from \"packets\" to \"bytes\". When I ported Cubic to QUIC, I spent some time doing that. I first rewrote the Cubic formula:\r\n```\r\n                                             3\r\n                      W     (t) = C * (t - K)  + W\r\n                       cubic                      max\r\n```\r\nIn a \"neutral\" way:\r\n```\r\n                                                    3\r\n                                        /    /t - K\\     \\\r\n                      W     (t) = W  * (C' *( ----- )  + 1)\r\n                       cubic       max  \\    \\  K  /     /\r\n```\r\nThis rewrite helped me understand what was going on. We have a windows size coefficient, `Wmax`, expressed in the same unit as CWIN; a coefficient C' that is a pure scalar and defines the `aggressiveness` of the implementation; and a cubic curve that is a function of `(t-K)/K`. The same rewrite helps understand the coefficient C -- or C' in the new notation.\r\n```\r\n                            C     3\r\n                      C' = --- * K\r\n                            W\r\n                             max\r\n```\r\nWhich reduces to:\r\n```\r\n                                   / W    - W    \\\r\n                            C     /   max    start\\     \r\n                      C' = --- * ( ----------------)\r\n                            W     \\       C       /\r\n                             max\r\n\r\n                             / W    - W    \\\r\n                            /   max    start\\     \r\n                      C' = ( ----------------)\r\n                            \\       W       /\r\n                             \\       max   /\r\n```\r\nIn most cases, when `sstresh` is larger than 2 packets, this reduces further:\r\n```\r\n                      W      = \u03b2 W\r\n                       start      max\r\n\r\n                      C' = (1 - \u03b2)\r\n\r\n                                                         3\r\n                                        /         /t - K\\     \\\r\n                      W     (t) = W  * ((1 - \u03b2) *( ----- )  + 1)\r\n                       cubic       max  \\         \\  K  /     /\r\n```\r\nThe formula does not depend on the unit of W, packet or bytes. The coefficient C disappears, but of course it is key in computing the pseudo-period `K` of the cubic curve.",
+          "createdAt": "2021-02-24T19:43:47Z",
+          "updatedAt": "2021-02-24T19:43:47Z"
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "id": "MDU6SXNzdWU4MTUwMTEyODQ=",
+      "title": "In PDF, alpha/beta looks broken",
+      "url": "https://github.com/NTAP/rfc8312bis/issues/46",
+      "state": "OPEN",
+      "author": "junhochoi",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "In a converted PDF, it looks like alpha -> \u00ce\u00b1 and beta -> \u00ce\u00b2\r\n\r\nFor example,\r\n```\r\n\u03b1_{aimd} = 3 * \\frac{1 - \u03b2_{cubic}}{1 + \u03b2_{cubic}}\r\n```\r\n\r\nlooks like following:\r\n\r\n<img width=\"745\" alt=\"Screen Shot 2021-02-23 at 6 02 39 PM\" src=\"https://user-images.githubusercontent.com/1229714/108934304-8a2a3980-7601-11eb-96cb-dc0fa1a7855a.png\">\r\n",
+      "createdAt": "2021-02-24T02:06:28Z",
+      "updatedAt": "2021-02-24T09:27:44Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "junhochoi",
+          "authorAssociation": "NONE",
+          "body": "others (txt, html) looks fine.",
+          "createdAt": "2021-02-24T02:07:40Z",
+          "updatedAt": "2021-02-24T02:07:40Z"
+        },
+        {
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "body": "Which PDF are you looking at? (This is likely a Unicode bug in the converter.)",
+          "createdAt": "2021-02-24T06:46:23Z",
+          "updatedAt": "2021-02-24T06:47:15Z"
+        },
+        {
+          "author": "junhochoi",
+          "authorAssociation": "NONE",
+          "body": "I am looking https://tools.ietf.org/pdf/draft-eggert-tcpm-rfc8312bis-02.txt\r\n(wow it's PDF but has .txt extension)",
+          "createdAt": "2021-02-24T08:44:25Z",
+          "updatedAt": "2021-02-24T08:44:25Z"
+        },
+        {
+          "author": "larseggert",
+          "authorAssociation": "MEMBER",
+          "body": "Thanks, I filed https://trac.tools.ietf.org/tools/ietfdb/ticket/3191",
+          "createdAt": "2021-02-24T09:27:44Z",
+          "updatedAt": "2021-02-24T09:27:44Z"
+        }
+      ]
     }
   ],
   "pulls": [
